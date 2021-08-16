@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruitbook</title>
+    <link rel="stylesheet" href="app.css?version=1">
+    <script src="https://kit.fontawesome.com/b6779b58da.js" crossorigin="anonymous"></script> 
+</head>
+
+<script defer>
+
+    function createaccount(){
+       var form = document.getElementById('backd');
+       if(form.style.display = "none"){
+        form.style.transition="3s";
+        form.style.display="inline-block";
+        
+       }
+   }
+
+   function closeform(){
+        var form = document.getElementById('backd');
+        form.style.display="none"; 
+   }
+
+</script> 
+
+<body>
+
+    <% if (locals.errormsg) { %>
+
+            <div class="errormessagediv">
+
+                <div class="message">
+                    <p class="ermsgtext"> <%= errormsg %></p>
+                </div>
+
+                <div class="closerror">
+                    <i class="fas fa-times" id="timeserror" onClick="closeform()"></i>
+                </div>
+            </div>
+    
+          
+       
+    <% } %>
+
+     <div class="section">
+    
+        <div class="left">
+            <div class="content">
+                <div class="name">
+                    <p>Fruitbook</p>
+                </div>
+                <div class="name2">
+                    <p>Fruitbook allows you to connect and share your favourite fruits from around the world.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="content">
+
+                <div class="form">
+                    <form class="formlogin" method="post" action="/login">
+                        <input type="text" name="email" placeholder="Email Address" class="email, finput">
+                        <input type="password" name="password" placeholder="Password" class="pass, finput">
+                        <input type="submit" value="Log In" class="login">
+                    </form>
+                    <button class="newaccbtn" onClick="createaccount()">Create New Account</button>
+                </div>
+               
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="backdrop" id="backd">
+        <div class="registerform">
+
+            <div class="top">
+
+            
+                    <div class="leftop">
+                        <p class="sign">Sign Up</p>
+                        <p class="quick">It's quick and easy.</p>
+                    </div>
+                    
+                    <div class="righttop">
+                        <i class="fas fa-times" id="times" onClick="closeform()"></i>
+                    </div>
+    
+            </div>
+
+            <div class="information">
+
+                <form action="/register" method="post">
+                
+                    <input type="text" name="firstname" placeholder="Firstname" class="email, finput">
+                    <input type="text" name="surname" placeholder="Surname" class="email, finput">
+                    <input type="text" name="email" placeholder="Email Address" class="email, finput">
+                    <input type="password" name="password" placeholder="Password" class="email, finput">
+
+                    <input type="submit" value="submit" class="login">
+
+                </form>
+            </div>
+       
+        </div>
+    </div>
+
+</body>
+</html>
